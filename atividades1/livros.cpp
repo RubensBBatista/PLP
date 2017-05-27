@@ -1,4 +1,6 @@
 #include <iostream>
+#include <algorithm>
+#include <vector>
 using namespace std;
 
 int main()
@@ -6,30 +8,20 @@ int main()
 	int num;
 	cin >> num;
 
-	string books[num];
+	vector<string> livros;
 
-	for (int i = 0; i < num; i++)
+	for (int i = 0; i <= num; i++)
 	{
 		string livro;
-		getLine(cin,livro);
-		books[i] = livro;
+		getline(cin,livro);
+		livros.push_back(livro);
 	}
 
-	for (int i = 0; i < num; i++)
-	{
-		for (int j = 0; j < num - 1 - i; j++)
-		{
-			if(books[j] < books[j-1]){
-				string aux = books[j];
-				books[j] = books[j-1];
-				books[j-1] = aux;
-			}
-		}
-	}
+	sort(livros.begin(), livros.end());
 
-	for (int i = 0; i < num; ++i)
+	for (int i = 0; i <= num; i++)
 	{
-		cout << books[i] << endl;
+		cout << livros[i] << endl;
 	}
 
 	return 0;
