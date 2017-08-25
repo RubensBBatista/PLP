@@ -1,0 +1,19 @@
+isVogal(A) :-
+    member(A,["a","e","i","o","u"]).
+
+getElement(I,[H|T],C) :- I == 0 -> C = H; Z is I - 1, getElement(Z,T,C).
+
+temVogalUltima(P) :-
+    string_chars(P,L),
+    length(L,N),
+    getElement(X,L,C), X is N - 1,
+    isVogal(C),
+    write(C).
+
+
+
+
+main :-
+  read_line_to_codes(user_input, A2),
+  string_to_atom(A2,A1),
+  temVogalUltima(A2).
