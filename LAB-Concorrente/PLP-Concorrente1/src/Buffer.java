@@ -13,7 +13,7 @@ public class Buffer {
             }
         }
         conteudo = valor;
-        System.out.println("Produtor #" + idProdutor + " colocou " + conteudo);
+        System.out.println("Produtor #" + idProdutor + " colocou produto #" + (conteudo + 1));
         disponivel = true;
         notifyAll();
     }
@@ -28,8 +28,8 @@ public class Buffer {
                 e.printStackTrace();
             }
         }
-        System.out.println("Consumidor #" + idConsumidor + " consumiu: "
-                + conteudo);
+        System.out.println("Consumidor #" + idConsumidor + " consumiu: produto #"
+                + (conteudo + 1));
         disponivel = false;
         notifyAll();
         return conteudo;
